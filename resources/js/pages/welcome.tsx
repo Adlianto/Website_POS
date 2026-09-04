@@ -185,7 +185,7 @@ export default function Welcome({ auth }: Props) {
                             <div className="bg-white p-3 rounded border border-slate-200 flex flex-col justify-between">
                                 <div>
                                     <div className="border-b border-slate-100 pb-2 mb-2 flex justify-between items-center">
-                                        <span className="font-bold text-xs text-slate-800">Keranjang (#INV-001)</span>
+                                        <span className="font-bold text-xs text-slate-800">Keranjang</span>
                                         <span className="text-[10px] bg-blue-50 text-blue-600 px-1.5 py-0.5 rounded font-medium">3 Item</span>
                                     </div>
                                     <div className="space-y-2 text-xs">
