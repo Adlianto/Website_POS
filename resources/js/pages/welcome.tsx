@@ -100,7 +100,7 @@ export default function Welcome({ auth }: Props) {
                                         href="/login"
                                         className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-blue-700 transition"
                                     >
-                                        Masuk Sebagai Staf / Admin
+                                        Masuk Sebagai Staf
                                     </Link>
                                     <a
                                         href="#fitur"
