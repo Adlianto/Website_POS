@@ -14,24 +14,20 @@ class DashboardController extends Controller
     {
         $today = Carbon::today();
 
-        // 1. Metrik Utama Hari Ini
         $todayTransactions = Transaction::whereDate('created_at', $today);
         $todayRevenue = (float) $todayTransactions->sum('total_amount');
         $todayCount = $todayTransactions->count();
 
-        // 2. Jumlah Item Terjual Hari Ini
         $itemsSoldToday = (int) TransactionItem::whereHas('transaction', function ($query) use ($today) {
             $query->whereDate('created_at', $today);
         })->sum('qty');
 
-        // 3. Peringatan Stok Menipis (stok <= min_stock_alert)
         $lowStockProducts = Product::with('category')
             ->whereColumn('stock', '<=', 'min_stock_alert')
             ->orderBy('stock', 'asc')
             ->take(5)
             ->get();
 
-        // 4. Riwayat 5 Transaksi Terakhir
         $recentTransactions = Transaction::with('user')
             ->latest()
             ->take(5)

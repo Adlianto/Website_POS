@@ -18,7 +18,6 @@ class ProductController extends Controller
     {
         $query = Product::with(['category', 'supplier'])->latest();
 
-        // Fitur Search Barcode atau Nama Produk
         if ($request->filled('search')) {
             $search = $request->search;
             $query->where(function ($q) use ($search) {
@@ -27,7 +26,6 @@ class ProductController extends Controller
             });
         }
 
-        // Fitur Filter Kategori
         if ($request->filled('category_id')) {
             $query->where('category_id', $request->category_id);
         }
@@ -68,7 +66,6 @@ class ProductController extends Controller
 
         $product = Product::create($validated);
 
-        // Catat stok awal ke mutasi stok (jika ada stok awal)
         if ($product->stock > 0) {
             StockMovement::create([
                 'product_id' => $product->id,
@@ -117,7 +114,6 @@ class ProductController extends Controller
             'min_stock_alert' => 'nullable|integer|min:0',
         ]);
 
-        // Catatan: stock tidak diupdate langsung di sini biar data mutasi tetap rapi
         $product->update($validated);
 
         return redirect()->route('products.index')->with('success', 'Data produk diperbarui!');

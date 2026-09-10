@@ -142,9 +142,6 @@ export default function Welcome({ auth }: Props) {
                                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
                                 <span className="ml-3 font-mono text-[11px] text-slate-400">pos.terminal.local/checkout</span>
                             </div>
-                            <span className="text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                                ONLINE • READY
-                            </span>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 bg-slate-50 p-3 rounded border border-slate-100">
